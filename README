@@ -1,0 +1,32 @@
+Salutare!
+
+    In implementarea temei am folosit un numar de 10 functii create de mine
+pentru a usura conversia catre diferite tipuri de date.
+Numele functiilor sunt destul de sugestive (convert_int_to_binary, 
+convert_unsignedint_to_string etc), iar acolo unde am considerat ca este 
+nevoie, am adaugat comentarii suplimentare pentru a specifica rolul fucntiei.
+
+    In general, functiile de conversie intorc un string (pentru a afisa 
+direct, folosind functia pusa la dispozitie) insa, o greseala pe care am 
+facut-o este aceea ca pentru a putea folosi stringul creat in functie, am 
+alocat memorie dinamic, si voi avea un leak mare de memorie + este ineficient.
+Nu am mai avut timp sa modific si il las asa...
+
+    In ceea ce priveste implementarea prelucrarii textului primit la input,
+am considerat 3 cazuri:
+
+ - Primul caz trateaza situatia in care am format de tipul "%%d, %%u, %%s etc"
+ 
+ - Al doilea caz are in vedere situatia in care la input primesc: "%c, %d,
+  %x etc", si afisez dupa ce fac conversia din tipul primit catre string
+ 
+ - Ultimul caz trateaza restul situatiilor. Salvez pointerii catre primele 
+ aparitii ale flag-uilor si prelucrez incepand de la pointer-ul minim.
+ Apoi, in functie de specificator, fac conversia necesara si folosind o 
+ eticheta, fac afisarea.
+ O situatie speciala este atunci cand primesc de la input "%c", atunci
+ afisez direct in cadrul if ului aferent.
+ In final, daca dupa ultimul specificator de tip mai exista text, afisez 
+ textul respectiv.
+
+
